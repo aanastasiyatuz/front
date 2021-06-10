@@ -13,6 +13,7 @@ const Home = () => {
         console.log('effect')
     }, [])
     console.log(places)
+
     return (
         <div className="inner">
             <header>

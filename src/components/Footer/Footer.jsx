@@ -14,7 +14,7 @@ const Footer = () => {
         const config = {
             headers: { 'Content-Type': 'multipart/form-data' }
         }
-        await axios.post('http://34.121.250.236/account/register/', newUser, config)
+        await axios.post('http://35.192.150.161/account/register/', newUser, config)
     }
     
     function handleClick(){

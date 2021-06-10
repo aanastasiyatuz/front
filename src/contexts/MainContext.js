@@ -23,7 +23,7 @@ const MainContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE)
     
     const getPlacesData = async () => {
-        let {data} = await axios('http://34.121.250.236/place')
+        let {data} = await axios('http://35.192.150.161/place')
         dispatch({
             type: "GET_PLACES_DATA",
             payload: data
@@ -31,7 +31,7 @@ const MainContextProvider = ({ children }) => {
     }
 
     const getExactPlaceData = async (id) => {
-        let {data} = await axios(`http://34.121.250.236/place/${id}`)
+        let {data} = await axios(`http://35.192.150.161/place/${id}`)
         dispatch({
             type: "GET_EXACT_PLACE_DATA",
             payload: data
@@ -39,7 +39,7 @@ const MainContextProvider = ({ children }) => {
     }
 
     const editPlace = async (id) => {
-        let {data} = await axios(`http://34.121.250.236/place/${id}`)
+        let {data} = await axios(`http://35.192.150.161/place/${id}`)
         dispatch({
             type: "EDIT_PLACE",
             payload: data
@@ -47,7 +47,7 @@ const MainContextProvider = ({ children }) => {
     }
 
     const getUserData = async (email) => {
-        let {data} = await axios(`http://34.121.250.236/profile_client/${email}`)
+        let {data} = await axios(`http://35.192.150.161/profile_client/${email}`)
         dispatch({
             type: "GET_USER_DATA",
             payload: data
@@ -58,17 +58,17 @@ const MainContextProvider = ({ children }) => {
         const config = {
             headers: { 'Content-Type': 'multipart/form-data' }
         }
-        await axios.post('http://34.121.250.236/place/', newPlace, config)
+        await axios.post('http://35.192.150.161/place/', newPlace, config)
         getPlacesData()
     }
 
     const deletePlace = async (id) => {
-        await axios.delete(`http://34.121.250.236/place/${id}`)
+        await axios.delete(`http://35.192.150.161/place/${id}`)
         getPlacesData()
     }
 
     const savePlace = async (newPlace) => {
-        await axios.patch(`http://34.121.250.236/place/${newPlace.get('id')}`, newPlace)
+        await axios.patch(`http://35.192.150.161/place/${newPlace.get('id')}`, newPlace)
         getPlacesData()
     }
 

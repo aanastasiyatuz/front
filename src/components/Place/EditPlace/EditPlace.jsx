@@ -33,8 +33,10 @@ const EditPlace = () => {
     }
 
     return (
-        <div className="inner">
+        <>
             {inpName ? (
+            <div className="inner">
+                <img src={placeToEdit.main_image} style={{'width':'90%'}} />
                 <form>
                     <h1>Edit Place: </h1>
                     <input value={inpName} onChange={(e) => setInpName(e.target.value)} type="text" />
@@ -46,9 +48,9 @@ const EditPlace = () => {
                     <input  type="file" onChange={(e) => setSelectedFile(e.target.files[0])} />
                     <Link to="/"><button onClick={editItems}>Edit</button></Link>
                 </form>
-
+            </div>
             ) : (null)}
-        </div>
+        </>
     );
 };
 

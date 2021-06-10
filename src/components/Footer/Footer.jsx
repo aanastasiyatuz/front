@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 
-
+let URL2 = 'http://35.192.150.161'
+let URL1 = 'http://127.0.0.1:8000'
 const Footer = () => {
     const [inpEmail, setInpEmail] = useState('');
     const [inpTel, setInpTel] = useState('');
@@ -14,7 +15,7 @@ const Footer = () => {
         const config = {
             headers: { 'Content-Type': 'multipart/form-data' }
         }
-        await axios.post('http://35.192.150.161/account/register/', newUser, config)
+        await axios.post(`http://127.0.0.1:8000/account/register/`, newUser, config)
     }
     
     function handleClick(){

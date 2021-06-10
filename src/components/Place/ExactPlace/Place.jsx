@@ -16,9 +16,9 @@ const Place = () => {
         return (
             <div className="inner">
                 <h1>{exactplace.name}</h1>
-                <div className="container" style={{'display':'flex', 'flex-direction':'row', 'justify-content':'flex-start'}}>
+                <div className="container" style={{'display':'flex', 'flexDirection':'row', 'justifyContent':'flexStart'}}>
                 <img src={exactplace.main_image} alt="" style={{'width': '250px', 'height': 'auto'}}/>
-                <p style={{'margin-left':'20px'}}>{exactplace.info}</p>
+                <p style={{'marginLeft':'20px'}}>{exactplace.info}</p>
                 </div>
                 <br />
                 <Link to="/"><button onClick={() => deletePlace(exactplace.id)}>Delete</button></Link>

@@ -2,8 +2,9 @@ import React, { useReducer } from 'react';
 import axios from 'axios'
 export const mainContext = React.createContext();
 
-let URL2 = 'http://35.192.150.161'
 let URL1 = 'http://127.0.0.1:8000'
+let URL2 = 'http://35.192.150.161'
+let URL3 = 'http://104.154.16.185'
 
 const INIT_STATE = {
     places: [],
@@ -26,7 +27,7 @@ const MainContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE)
     
     const getPlacesData = async () => {
-        let {data} = await axios('http://127.0.0.1:8000/place')
+        let {data} = await axios('http://104.154.16.185/place')
         dispatch({
             type: "GET_PLACES_DATA",
             payload: data
@@ -34,7 +35,7 @@ const MainContextProvider = ({ children }) => {
     }
 
     const getExactPlaceData = async (id) => {
-        let {data} = await axios(`http://127.0.0.1:8000/place/${id}`)
+        let {data} = await axios(`http://104.154.16.185/place/${id}`)
         dispatch({
             type: "GET_EXACT_PLACE_DATA",
             payload: data
@@ -42,7 +43,7 @@ const MainContextProvider = ({ children }) => {
     }
 
     const editPlace = async (id) => {
-        let {data} = await axios(`http://127.0.0.1:8000/place/${id}`)
+        let {data} = await axios(`http://104.154.16.185/place/${id}`)
         dispatch({
             type: "EDIT_PLACE",
             payload: data
@@ -50,7 +51,7 @@ const MainContextProvider = ({ children }) => {
     }
 
     const getUserData = async (email) => {
-        let {data} = await axios(`http://127.0.0.1:8000/profile_client/${email}`)
+        let {data} = await axios(`http://104.154.16.185/profile_client/${email}`)
         dispatch({
             type: "GET_USER_DATA",
             payload: data
@@ -61,17 +62,17 @@ const MainContextProvider = ({ children }) => {
         const config = {
             headers: { 'Content-Type': 'multipart/form-data' }
         }
-        await axios.post(`http://127.0.0.1:8000/place/`, newPlace, config)
+        await axios.post(`http://104.154.16.185/place/`, newPlace, config)
         getPlacesData()
     }
 
     const deletePlace = async (id) => {
-        await axios.delete(`http://127.0.0.1:8000/place/${id}`)
+        await axios.delete(`http://104.154.16.185/place/${id}`)
         getPlacesData()
     }
 
     const savePlace = async (newPlace) => {
-        await axios.patch(`http://127.0.0.1:8000/place/${newPlace.get('id')}/`, newPlace)
+        await axios.patch(`http://104.154.16.185/place/${newPlace.get('id')}/`, newPlace)
         getPlacesData()
     }
 
